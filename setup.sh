@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# Replace "myenv" with your desired environment name
-# Replace "x.x" with the specific Python version you need
-conda create -n myenv python=3.8 -y
+# Specify the Python version
+PYTHON_VERSION="3.9.7"
 
-# Activate the environment
-source activate myenv
+# Create a virtual environment (optional)
+python -m venv venv
+source venv/bin/activate
 
-# If you have a requirements.txt file, you can install all dependencies from it
-conda install --file requirements.txt -y
+# Upgrade pip and setuptools to avoid compatibility issues
+pip install --upgrade pip setuptools wheel
 
-# Or, you can directly install packages via the script
-# conda install numpy pandas -y
+# Install dependencies from requirements.txt
+pip install -r requirements.txt
 
-# Additional commands to set up your project can go here
+# Additional build steps can go here
